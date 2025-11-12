@@ -1,0 +1,196 @@
+/* Basic Reset Which we will do first for each project */
+
+* {
+    margin:0; /* removes default margin */
+    padding: 0; /* removes default padding */
+    box-sizing: border-box; /* includes padding/border in total width & height */
+}
+
+/* This above will set everthing to 0 and box-sizing: border-box will 
+change how browser calculate an element total width and height 
+
+
+-- Without this if element has 100px width and we want to add 10 px padding it 
+will not make use of padding space from 100 px (content remain 80px and 10 
+padding from left hand and 10 from right). it will make 120 px as it will add 10 each side */
+
+
+body{
+    background: #f5efe6; /* sets light beige background */
+    display: flex; /* enables flexbox */
+    justify-content: center; /* centers content horizontally */
+    align-items: center; /* centers content vertically */
+    min-height: 100vh; /* fills full screen height */
+    padding: 1rem; /* adds spacing inside body */
+    font-family: sans-serif; /* sets clean font */
+}
+
+.container {
+    background-color: white; /* white card background */
+    border-radius: 1rem; /* rounded corners */
+    box-shadow: 0 10px 30px rgba(0,0,0,0.1); /* soft shadow effect */
+    width: 100%; /* takes full width */
+    max-width: 600px; /* sets max width limit */
+    overflow: hidden; /* hides overflowing content */
+    position: relative; /* enables positioned children */
+}
+
+.screen{
+    display: none; /* hidden by default */
+    padding: 2rem; /* inner spacing */
+    text-align: center; /* center-aligns text */
+}
+
+/* Which div class will have screen and active it will be visible rest not */
+.screen.active {  
+    display: block; /* makes active screen visible */
+}
+
+/* START SCREEN */
+
+#start-screen h1 {
+    color: #e86a33; /* orange heading color */
+    margin-bottom: 20px; /* adds space below */
+    font-size: 2.5rem; /* large heading size */
+}
+
+#start-screen p {
+    color: #666; /* gray text color */
+    margin-bottom: 30px; /* space below paragraph */
+    font-size: 1.1rem; /* slightly large font */
+}
+
+.quiz-header{
+    margin-bottom: 2rem; /* space below quiz header */
+}
+
+#question-text{
+    color: #333; /* dark text color */
+    font-size: 1.5rem; /* medium-large font */
+    margin-bottom: 1rem; /* spacing below question */
+    line-height: 1.4; /* increases line spacing */
+}
+
+.quiz-info{
+    display: flex; /* flex layout for info */
+    justify-content: space-between; /* spreads items apart */
+    color: #666; /* gray color text */
+    margin-bottom: 10px; /* small bottom space */
+}
+
+.answer-container{
+    display:flex; /* flex container */
+    flex-direction: column; /* stack items vertically */
+    gap: 10px; /* space between buttons */
+    margin-bottom: 25px; /* space below answers */
+}
+
+.answer-btn{
+    background-color: #f8f0e5; /* beige button background */
+    color: #333; /* dark text color */
+    border: 2px solid #eadbc8; /* light border */
+    border-radius: 10px; /* rounded edges */
+    padding: 1rem; /* inner padding */
+    cursor: pointer; /* pointer on hover */
+    text-align: left; /* aligns text to left */
+    transition: all 0.3s ease; /* smooth hover animation */
+}
+
+.answer-btn:hover{
+    background-color: #eadbc8; /* darker beige on hover */
+    border-color: #dac0ae; /* slightly darker border */
+}
+
+.answer-btn.correct {
+    background-color: #e6fff0; /* greenish background for correct */
+    border-color: #a3f0c4; /* light green border */
+    color: #28a745; /* green text */
+}
+
+.answer-btn.incorrect {
+    background-color: #fff0f0; /* light red background for wrong */
+    border-color: #ffbdbd; /* pinkish border */
+    color: #dc3545; /* red text */
+}
+
+.progress-bar{
+    height: 10px; /* bar thickness */
+    background-color: #f8f0e5; /* light beige base */
+    border-radius: 5px; /* rounded bar ends */
+    overflow: hidden; /* hides inner overflow */
+    margin-top: 20px; /* space above bar */
+}
+
+.progress{
+    height: 100%; /* fills full height */
+    background-color: #e86a33; /* orange progress color */
+    width: 0%; /* starts empty */
+    transition:  width 0.3s ease; /* smooth width animation */
+}
+
+/* RESULT SCREEN */
+
+#result-screen h1{
+    color: #e86a33; /* orange heading */
+    margin-bottom: 30px; /* space below heading */
+}
+
+.result-info{
+    background-color: #f8f0e5; /* light beige box background */
+    border-radius: 10px; /* rounded corners */
+    padding: 20px; /* inner padding */
+    margin-bottom: 30px; /* space below box */
+}
+
+.result-info p{
+    font-size: 1.2rem; /* slightly larger text */
+    color: #333; /* dark gray text */
+    margin-bottom: 1rem; /* space between lines */
+}
+
+#result-message{
+    font-size:  1.5rem; /* big result text */
+    font-weight: 600; /* semi-bold */
+    color: #e86a33; /* orange color */
+}
+
+button{
+    background-color: #e86a33; /* orange button background */
+    color: white; /* white text */
+    border: none; /* removes border */
+    border-radius: 10px; /* rounded button */
+    padding: 15px 30px; /* button size */
+    font-size: 1.1rem; /* medium font size */
+    cursor: pointer; /* pointer cursor */
+}
+
+button:hover{
+    background-color: #d45b28; /* darker orange on hover */
+}
+
+/* To Make RESPONSIVE DESIGN */
+
+@media (max-width:500px){
+    /* When we hit 500px and below, implement the styles below */
+
+    .screen{
+        padding: 1rem; /* reduce padding on small screens */
+    }
+
+    #start-screen h1{
+        font-size: 2rem; /* smaller heading on mobile */
+    }
+
+    #question-text{
+        font-size: 1.3rem; /* smaller question text */
+    }
+
+    .answer-btn{
+        padding: 12px; /* reduce button padding */
+    }
+
+    button {
+        padding: 12px 25px; /* smaller button size */
+        font-size: 1rem; /* smaller text */
+    }
+}
